@@ -1,0 +1,21 @@
+_format_version: "2.1"
+
+services:
+  - name: gist-service
+    url: https://google.co.in
+    routes:
+      - name: gists-route
+        paths:
+          - /gists
+  - name: hello-service
+    url: http://host.docker.internal:3000
+    routes:
+      - name: hello-route
+        paths:
+          - /hello
+
+plugins:
+  - name: external-auth
+    config:
+      url: http://host.docker.internal:3000/login
+
